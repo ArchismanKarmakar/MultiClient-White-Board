@@ -6,6 +6,6 @@ if you want to run the server
 
 install nodejs
 
-1) npm i
-2) npm i nodemon --global
-2) nodmon app
+1. npm i.
+2. npm i nodemon --global.
+3. nodmon app.
