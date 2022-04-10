@@ -1,0 +1,28 @@
+{
+  "name": "drawing-board-app",
+  "version": "1.0.0",
+  "description": "this is the best drawing board app ever made on internet.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
+  },
+  "keywords": [
+    "awesome",
+    "project"
+  ],
+  "author": "Archisman Karmakar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.23.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "nodemailer": "^6.4.14",
+    "socket.io": "^4.4.1",
+    "uuidv4": "^6.2.4"
+  }
+}

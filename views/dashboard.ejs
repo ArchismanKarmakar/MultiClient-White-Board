@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/about">Dream_Dev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" id="logout" style="cursor: pointer;">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+
+<div class="container" style="position: absolute;top:12%;left: 4%;z-index: 10;">
+    <div class="toast" data-delay=4000>
+        <div class="toast-header"><strong class="toast-head"></strong></div>
+        <div class="toast-body"></div>
+    </div>
+</div>
+
+<div class="d-flex flex-row justify-content-center align-items-center bd-highlight mb-3" id="dashboard">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('title') %>
+Dream_Dev | Dashboard
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/static/css/dashboard.css">
+
+
+<%- contentFor('script') %>
+<script src="/static/js/dashboard.js"></script>

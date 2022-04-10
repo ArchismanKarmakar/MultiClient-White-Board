@@ -1,0 +1,78 @@
+.form-row {
+    width: 30vw;
+    margin: 1vh;
+}
+
+#prof {
+    width: 30vw;
+    margin: 1vh;
+}
+
+.card-img {
+    border: 2px solid;
+    margin-top: 1.25rem;
+    margin-left: 1.25rem;
+}
+
+@media only screen and (max-width: 776px) {
+    .form-row {
+        width: 40vw;
+        margin: 1vh;
+    }
+
+    #prof {
+        width: 40vw;
+        margin: 1vh;
+    }
+
+    #accordionExample {
+        margin: auto !important;
+    }
+
+    #dashboard {
+        flex-direction: column !important;
+    }
+}
+
+@media only screen and (max-width:590px) {
+    .form-row {
+        width: 55vw;
+        margin: 2vh;
+    }
+
+    #prof {
+        width: 55vw;
+        margin: 1vh;
+    }
+
+    .share {
+        max-width: 100% !important;
+    }
+
+    .card-img {
+        max-width: 70%;
+        max-height: 40%;
+    }
+}
+
+@media only screen and (max-width:440px) {
+    .form-row {
+        width: 66vw;
+        margin: 2vh;
+    }
+
+    #prof {
+        width: 66vw;
+        margin: 1vh;
+    }
+}
+
+@media only screen and (max-width:1030px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .share {
+        width: 184% !important;
+    }
+}

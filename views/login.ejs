@@ -1,0 +1,85 @@
+<!-- Code for navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/about">Dream_Dev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signin">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Signup</a>
+            </li>
+        </ul>
+    </div>
+</nav><br>
+
+<!-- toast -->
+<div class="container" style="position: absolute;top:12%;left: 4%;z-index: 10;">
+    <div class="toast" data-delay=4000>
+        <div class="toast-header"><strong class="toast-head"></strong></div>
+        <div class="toast-body"></div>
+    </div>
+</div>
+
+<!-- Code for form of Sign in and Sign up -->
+<section class="Form my-5 mx-5">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-5">
+            </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <h1 class="font-weight-bold py-3">Dream_Dev</h1>
+                <h4>Sign in to your account</h4>
+                <form id="login">
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="email" placeholder="Enter your Email Address" class="form-control my-2 p-4"
+                                required id="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="password" placeholder="Enter your Password" class="form-control my-2 p-4"
+                                required id="password">
+                        </div>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col-lg-7">
+                            <button type="submit" class="btn1">Login</button>
+                        </div>
+
+                    </div>
+                    <a href="/resetPassword">Forgot password ?</a>
+                    <div>
+                        <div>
+                            login with &ThickSpace;
+                            <a href="#"><i class="fa fa-google"></i>&ThickSpace;</a>
+                            <a href="#"><i class="fa fa-facebook"></i>&ThickSpace;</a>
+                            <a href="#"><i class="fa fa-github"></i>&ThickSpace;</a>
+                        </div>
+                    </div>
+                    <!-- Code for using Sign up option -->
+                    <p>Don't have an account? <a href="/signup" id="signup">Register here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- contentFor('title') %>
+Dream_Dev | Login
+
+<%- contentFor('style') %>
+
+<link rel="stylesheet" href="/static/css/login.css">
+<script src="https://kit.fontawesome.com/1bd8840b7b.js" crossorigin="anonymous"></script>
+
+<%- contentFor('script') %>
+
+<script src="/static/js/login.js"></script>

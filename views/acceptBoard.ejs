@@ -1,0 +1,119 @@
+<div class="d-flex flex-row justify-content-center align-items-center bd-highlight mb-3" id="dashboard">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<img alt="..." id="imgId" style="display: none;">
+
+<%- contentFor('title') %>
+Dream_Dev | acceptWhiteBoard
+
+<%- contentFor('style') %>
+<style>
+    body {
+        margin: auto;
+    }
+</style>
+
+<%- contentFor('script') %>
+<script>
+    let pngUrl;
+    let token = "<%= query.t %>"
+    let url = "<%= query.i %>"
+    let email = "<%= query.s %>"
+    let drawings
+
+    function getDataUrl(img) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        return canvas.toDataURL('image/png');
+    }
+    const img = document.getElementById('imgId');
+    img.src = url
+    img.crossOrigin = "anonymous"
+    img.addEventListener('load', function (event) {
+        pngUrl = getDataUrl(event.currentTarget);
+        console.log(pngUrl);
+    });
+
+
+    fetch('/istokenValid', {
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+            'Content-Type': 'application/json',
+        },
+        method: "post",
+        body: JSON.stringify({
+            token,
+        })
+    }).then(res => res.json())
+        .then(data => {
+            if (data.error === "You must be logged in") window.location.href = `${window.location.origin}/signin`
+            else if (data.error === 'Session has expired!') window.location.href = `${window.location.origin}/dashboard`
+            else {
+                console.log(pngUrl)
+                fetch(pngUrl)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        const image = new File([blob], 'drawing.png', blob)
+                        let data = new FormData()
+                        data.append("file", image)
+                        data.append("upload_preset", "drawingboard")
+                        data.append("cloud_name", "instaimagesparnab")
+
+                        fetch(`https://api.cloudinary.com/v1_1/instaimagesparnab/image/upload`, {
+                            method: "post",
+                            body: data,
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                let arr = JSON.parse(localStorage.getItem("user")).WhiteBoards
+                                arr.push({ img: data.secure_url, img_id: data.public_id })
+                                localStorage.setItem('user', JSON.stringify({ ...JSON.parse(localStorage.getItem('user')), WhiteBoards: arr }))
+
+                                fetch('/getDrawings', {
+                                    method: 'post',
+                                    headers: {
+                                        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+                                        "Content-Type": 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        pic: url,
+                                        email: email
+                                    })
+                                }).then(res => res.json())
+                                    .then(d => {
+                                        drawings = d
+                                        fetch(`/saveWhiteBoard`, {
+                                            method: 'put',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+                                            },
+                                            body: JSON.stringify({
+                                                url: data.secure_url,
+                                                img_id: data.public_id,
+                                                drawings,
+                                            })
+                                        })
+                                            .then(res => res.json())
+                                            .then(result => {
+                                                console.log(result)
+                                                window.location.href = `${window.location.origin}/dashboard`
+                                            })
+                                    })
+
+                            })
+                            .catch(e => console.log(e))
+                    })
+                    .catch(e => console.log(e))
+            }
+        })
+
+</script>

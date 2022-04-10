@@ -1,0 +1,110 @@
+<!-- Code for navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/about">Dream_Dev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signin">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Signup</a>
+            </li>
+        </ul>
+    </div>
+</nav><br>
+
+<div class="container" style="position: absolute;top:12%;left: 4%;z-index: 10;">
+    <div class="toast" data-delay=4000>
+        <div class="toast-header"><strong class="toast-head"></strong></div>
+        <div class="toast-body"></div>
+    </div>
+</div>
+
+<!-- Code for form of Sign in and Sign up -->
+<section class="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-5">
+            </div>
+            <div class="col-lg-7 px-2 pt-4">
+                <h1 class="font-weight-bold py-3">Dream_Dev</h1>
+                <h4>Create your account</h4>
+                <form id="signup">
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" placeholder="First Name" class="form-control my-2 p-4" required
+                                id="firstName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" placeholder="Last Name" class="form-control my-2 p-4" required
+                                id="lastName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="email" placeholder="Email address" class="form-control my-2 p-4" required
+                                id="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="password" placeholder="Password" class="form-control my-2 p-4" required
+                                id="password">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="password" placeholder="Confirm password" class="form-control my-2 p-4" required
+                                id="confirmPassword">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="pic"
+                                    aria-describedby="inputGroupFileAddon01" multiple="false" accept="image/*">
+                                <label class="custom-file-label" for="inputGroupFile01">Profile Pic ( optional )</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col-lg-7">
+                            <button type="submit" class="btn1">Create Account</button>
+                        </div>
+                    </div>
+                    <div>
+                        OR
+                        <div>
+                            Create account from &ThickSpace;
+                            <a href="#"><i class="fa fa-google"></i>&ThickSpace;</a>
+                            <a href="#"><i class="fa fa-facebook"></i>&ThickSpace;</a>
+                            <a href="#"><i class="fa fa-github"></i>&ThickSpace;</a>
+                        </div>
+                        <div class="my-3">
+                            Already have an account ?
+                            <a href="/signin">Signin</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- contentFor('title') %>
+Dream_Dev | Signup
+
+<%- contentFor('style') %>
+
+<link rel="stylesheet" href="/static/css/signup.css">
+<script src="https://kit.fontawesome.com/1bd8840b7b.js" crossorigin="anonymous"></script>
+
+<%- contentFor('script') %>
+<script src="/static/js/signup.js"></script>
